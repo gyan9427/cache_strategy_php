@@ -5,8 +5,25 @@ use App\Utilities\VarCache;
 
 class VarCaseTest extends TestCase{
 
-    function testUnsetValueIsValid(){
+    protected function setUp():void{
+        @unlink('cache/foo.php');
+    }
+
+    public function testUnsetValueIsInvalid(){
         $cache = new VarCache('foo');
         $this->assertFalse($cache->isValid());
+    }
+
+    public function testValidTrureAfterSet(){
+        $cache = new VarCache('foo');
+        $cache->set('bar');
+        $this->assertTrue($cache->isValid());
+    }
+
+    public function testCacheRetainsValue(){
+        $test_val = "test".rand(1,100);
+        $cache = new VarCache('foo');
+        $cache->set($test_val);
+        $this->assertEquals($test_val,$cache->get());
     }
 }
