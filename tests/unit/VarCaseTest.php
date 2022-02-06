@@ -26,4 +26,13 @@ class VarCaseTest extends TestCase{
         $cache->set($test_val);
         $this->assertEquals($test_val,$cache->get());
     }
+
+    public function testStringFailsForArray(){
+        $test_val = array('one','two');
+        $cache = new VarCache('foo');
+        $cache->set($test_val);
+        $this->assertError('Array to string conversion');
+        $this->assertNotEqual($test_val,$cache->get());
+        $this->assertEquals('array',strtolower($cache->get()));
+    }
 }
