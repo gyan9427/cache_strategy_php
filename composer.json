@@ -1,0 +1,17 @@
+{
+    "name": "qntalion/simple_cache",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gyan9427",
+            "email": "gyan9427@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
+}

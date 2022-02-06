@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit    verbose="true"
+            stopOnFailure="false"
+            colors="true"
+            bootstrap="">
+    <testsuites>
+        <testsuite  name="Test for Cache">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+
